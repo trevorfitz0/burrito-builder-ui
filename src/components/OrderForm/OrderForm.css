@@ -1,0 +1,37 @@
+
+.ingredient-button {
+    margin-top: 2vh;
+    height: 5vh;
+    width: 8vw;
+    background-color: black;
+    color: blanchedalmond;
+    font-size: 2vh;
+    cursor: pointer;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.name-input {
+    width: 20vw;
+    height: 5vh;
+    font-size: 4vh;
+    text-align: center;
+}
+
+p {
+    font-size: 3vh;
+}
+
+.submit {
+    height: 5vh;
+    width: 8vw;
+    background-color: black;
+    color: blanchedalmond;
+    font-size: 2vh;
+    cursor: pointer;
+}
