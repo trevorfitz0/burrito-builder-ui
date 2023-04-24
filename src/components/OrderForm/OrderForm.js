@@ -11,18 +11,28 @@ class OrderForm extends Component {
     };
   }
 
-
   handleSubmit = e => {
     e.preventDefault();
     this.clearInputs();
-    addOrder(this.state.name, this.state.ingredients)
+    addOrder(this.state.ingredients.length + 1, this.state.name, this.state.ingredients)
+    this.props.update(this.state.ingredients.length + 1, this.state.name, this.state.ingredients)
+
   }
 
   clearInputs = () => {
     this.setState({name: '', ingredients: []});
   }
 
+  handleIngredientChange = (e) => {
+    e.preventDefault()
+    const newArr = this.state.ingredients
+    newArr.push(e.target.name)
+    this.setState({ ingredients: newArr })
+  }
 
+  handleNameChange = (e) => {
+    this.setState({ name: e.target.value })
+  }
 
   render() {
     const possibleIngredients = ['beans', 'steak', 'carnitas', 'sofritas', 'lettuce', 'queso fresco', 'pico de gallo', 'hot sauce', 'guacamole', 'jalapenos', 'cilantro', 'sour cream'];

@@ -3,6 +3,21 @@ export const getOrders = () => {
       .then(response => response.json())
 }
 
-export const addOrder = (name, ingredients) => {
-  
+export const addOrder = (id, name, ingredients) => {
+  console.log({      id: id,
+    name: name,
+    ingredients: ingredients})
+  fetch('http://localhost:3001/api/v1/orders', {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: 
+    JSON.stringify({
+      id: id,
+      name: name,
+      ingredients: ingredients
+    })
+  })
+    
 }
