@@ -18,3 +18,9 @@ export const addOrder = (id, name, ingredients) => {
   })
     
 }
+
+export const removeOrder = (id) => {
+  fetch('http://localhost:3001/api/v1/orders/' + id, {
+    method: 'DELETE'
+  })
+}

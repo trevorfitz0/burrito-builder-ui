@@ -12,6 +12,7 @@ const Orders = props => {
             return <li>{ingredient}</li>
           })}
         </ul>
+        <button onClick={() => props.remove(order.id) }>Complete!</button>
       </div>
     )
   });
