@@ -33,8 +33,11 @@ class OrderForm extends Component {
   handleIngredientChange = (e) => {
     e.preventDefault()
     const newArr = this.state.ingredients
-    newArr.push(e.target.name)
-    this.setState({ ingredients: newArr })
+    const dupeCheck = newArr.filter(ingredient => ingredient === e.target.name)
+    if(dupeCheck.length === 0 ) {
+      newArr.push(e.target.name)
+      this.setState({ ingredients: newArr })
+    }
   }
 
   handleNameChange = (e) => {
