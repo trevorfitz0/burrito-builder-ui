@@ -1,4 +1,4 @@
-describe('user data display', () => {
+describe('user post data', () => {
     beforeEach(() => {
         cy.intercept('GET', 'http://localhost:3001/api/v1/orders', {
             statusCode: 200,
