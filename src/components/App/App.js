@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import {getOrders} from '../../apiCalls';
+import {getOrders, removeOrder} from '../../apiCalls';
 import Orders from '../../components/Orders/Orders';
 import OrderForm from '../../components/OrderForm/OrderForm';
 
@@ -8,6 +8,7 @@ class App extends Component {
   constructor(props) {
     super();
     this.updateOrders = this.updateOrders.bind(this);
+    this.removeOrder = this.removeOrder.bind(this);
     this.state = {
       orders: []
     }
@@ -26,6 +27,15 @@ class App extends Component {
     this.setState({ orders: allOrders })
   }
 
+  removeOrder(id) {
+    const newArr = this.state.orders
+    const objWithIdIndex = newArr.findIndex((obj) => obj.id === id);
+
+    newArr.splice(objWithIdIndex, 1);
+    removeOrder(id)
+    this.setState({ orders: newArr})
+  }
+
   render() {
     return (
       <main className="App">
@@ -34,7 +44,7 @@ class App extends Component {
           <OrderForm update={ this.updateOrders }/>
         </header>
 
-        <Orders orders={ this.state.orders }/>
+        <Orders remove={ this.removeOrder } orders={ this.state.orders }/>
       </main>
     );
   }

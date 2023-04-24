@@ -4,9 +4,6 @@ export const getOrders = () => {
 }
 
 export const addOrder = (id, name, ingredients) => {
-  console.log({      id: id,
-    name: name,
-    ingredients: ingredients})
   fetch('http://localhost:3001/api/v1/orders', {
     method: 'POST',
     headers: {
@@ -20,4 +17,10 @@ export const addOrder = (id, name, ingredients) => {
     })
   })
     
+}
+
+export const removeOrder = (id) => {
+  fetch('http://localhost:3001/api/v1/orders/' + id, {
+    method: 'DELETE'
+  })
 }
