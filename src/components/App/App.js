@@ -39,7 +39,6 @@ class App extends Component {
   }
 
   updateError(newError) {
-    console.log(newError)
     this.setState({ error: newError })
   }
 
