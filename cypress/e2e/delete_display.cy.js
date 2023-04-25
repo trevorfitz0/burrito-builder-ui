@@ -14,10 +14,12 @@ describe('user delete data', () => {
 
         cy.get('.submit').click()
 
+        cy.intercept('DELETE', 'http://localhost:3001/api/v1/orders/4', {
+            statusCode: 201,
+          })
         cy.get(':nth-child(4) > button').click()
 
         cy.get('section > :nth-child(4)').should('not.exist')
         
     })
-
   })
