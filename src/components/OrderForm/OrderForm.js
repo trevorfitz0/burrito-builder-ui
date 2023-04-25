@@ -16,12 +16,15 @@ class OrderForm extends Component {
     e.preventDefault();
 
     if (this.state.name === '') {
+      this.props.errorHandler('Please enter your name')
       return
     }
-    if (this.state.ingredients === []) {
+    const ingredientLength = this.state.ingredients.length
+    if (ingredientLength === 0) {
+      this.props.errorHandler('Please choose at least 1 ingredient')
       return
     }
-
+    this.props.errorHandler('')
     this.clearInputs();
     addOrder(this.state.ingredients.length + 1, this.state.name, this.state.ingredients)
     this.props.update(this.state.ingredients.length + 1, this.state.name, this.state.ingredients)

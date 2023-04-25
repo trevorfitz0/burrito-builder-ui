@@ -26,7 +26,7 @@ describe('user post data', () => {
 
         cy.get('p').contains('Order: beans, hot sauce')
 
-        cy.get(':nth-child(15)').click()
+        cy.get('.submit').click()
 
         cy.get(':nth-child(4) > h3').contains('Trevor')
 

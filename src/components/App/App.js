@@ -9,8 +9,10 @@ class App extends Component {
     super();
     this.updateOrders = this.updateOrders.bind(this);
     this.removeOrder = this.removeOrder.bind(this);
+    this.updateError = this.updateError.bind(this);
     this.state = {
-      orders: []
+      orders: [],
+      error: ''
     }
   }
 
@@ -36,12 +38,18 @@ class App extends Component {
     this.setState({ orders: newArr})
   }
 
+  updateError(newError) {
+    console.log(newError)
+    this.setState({ error: newError })
+  }
+
   render() {
     return (
       <main className="App">
         <header>
           <h1>Burrito Builder</h1>
-          <OrderForm update={ this.updateOrders }/>
+          <OrderForm errorHandler={ this.updateError } update={ this.updateOrders }/>
+          <h3 className='error'>{ this.state.error }</h3>
         </header>
 
         <Orders remove={ this.removeOrder } orders={ this.state.orders }/>
