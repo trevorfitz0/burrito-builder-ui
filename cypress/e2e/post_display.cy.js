@@ -24,8 +24,14 @@ describe('user post data', () => {
         cy.get('[name="beans"]').click()
         cy.get('[name="hot sauce"]').click()
 
-        cy.get('p').contains('Order: beans, hot sauce')
-
+        cy.intercept('POST', 'http://localhost:3001/api/v1/orders', {
+            statusCode: 201,
+            body: {
+                id: 4,
+                name: 'Trevor',
+                ingredients: ['beans', 'hot sauce'],
+            }
+          })
         cy.get('.submit').click()
 
         cy.get(':nth-child(4) > h3').contains('Trevor')

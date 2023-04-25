@@ -12,7 +12,7 @@ describe('user data display', () => {
     })
 
     it('should display an order', () => {
-        cy.get(':nth-child(1) > h3')
+        cy.get('section > :nth-child(1) > h3')
         .contains('Pat')
 
         cy.get(':nth-child(1) > .ingredient-list > :nth-child(1)')
